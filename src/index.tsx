@@ -16,7 +16,7 @@ root.render(
     <React.StrictMode>
         <QueryClientProvider client={queryClient}>
             <ThemeProvider theme={theme}>
-                <BrowserRouter>
+                <BrowserRouter basename="/crypto_tracker">
                     <App />
                 </BrowserRouter>
             </ThemeProvider>
