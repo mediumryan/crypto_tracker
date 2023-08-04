@@ -85,6 +85,8 @@ const PercentItems = styled.div`
     margin: 12px;
     animation: ${priceAnimation} 1.5s linear;
     transition: 300ms all;
+    box-shadow: 4px 4px 15px -3px rgba(0, 0, 0, 0.1),
+        0px 10px 15px -3px rgba(0, 0, 0, 0.1);
     span:first-child {
         margin-right: 12px;
         font-size: 18px;
@@ -107,9 +109,9 @@ export default function Price() {
         if (val === undefined) {
             return 'black';
         } else if (val > 0) {
-            return 'blue';
+            return '#68a67d';
         } else if (val < 0) {
-            return 'red';
+            return '#EE1D52';
         } else if (val === 0) {
             return 'black';
         }

@@ -35,6 +35,8 @@ export const StyledLink = styled(Link)`
     font-size: 24px;
     font-weight: 700;
     transition: 300ms ease-in;
+    box-shadow: 32px 40px 15px -3px rgba(0, 0, 0, 0.1),
+        0px 10px 15px -3px rgba(0, 0, 0, 0.1);
 `;
 
 export const CoinImg = styled.img`
@@ -46,7 +48,7 @@ export const CoinImg = styled.img`
 
 const CoinsItem = styled.li`
     list-style: none;
-    background-color: ${(props) => props.theme.boxColor};
+    background-color: ${(props) => props.theme.bgColor};
     color: ${(props) => props.theme.textColor};
     margin-bottom: 10px;
     padding: 20px;

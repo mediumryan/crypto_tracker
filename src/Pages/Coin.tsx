@@ -104,7 +104,7 @@ const OverViewBox = styled.div`
 
 const OverView = styled.div`
     width: 100%;
-    background-color: ${(props) => props.theme.boxColor};
+    background-color: ${(props) => props.theme.bgColor};
     color: ${(props) => props.theme.textColor};
     display: flex;
     justify-content: space-evenly;
@@ -113,6 +113,8 @@ const OverView = styled.div`
     margin: 12px;
     text-align: center;
     border-radius: 20px;
+    box-shadow: 4px 4px 15px -3px rgba(0, 0, 0, 0.1),
+        0px 10px 15px -3px rgba(0, 0, 0, 0.1);
 `;
 
 const OverViewItem = styled.div`
@@ -130,6 +132,7 @@ const OverViewItem = styled.div`
 const Description = styled.div`
     width: 100%;
     color: ${(props) => props.theme.textColor};
+    background-color: ${(props) => props.theme.bgColor};
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -137,6 +140,9 @@ const Description = styled.div`
     margin: 12px;
     font-size: 20px;
     line-height: 1.5;
+    border-radius: 4px;
+    box-shadow: 4px 4px 15px -3px rgba(0, 0, 0, 0.1),
+        0px 10px 15px -3px rgba(0, 0, 0, 0.1);
 `;
 
 const PriceAndChart = styled.div`
@@ -160,12 +166,13 @@ const LinkTo = styled(StyledLink)<{ isActive: boolean }>`
     text-align: center;
     font-size: 24px;
     font-weight: 700;
-    background-color: ${(props) => props.theme.boxColor};
+    background-color: ${(props) => props.theme.bgColor};
     color: ${(props) =>
         props.isActive ? props.theme.accentColor : props.theme.textColor};
     border-radius: 20px;
     padding: 12px 24px;
     margin: 4px;
+    box-shadow: none;
 `;
 
 export default function Coin() {
