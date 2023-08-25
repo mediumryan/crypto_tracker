@@ -1,0 +1,14 @@
+사용할 api 주소
+
+- 모든 코인 정보
+https://api.coinpaprika.com/v1/coins
+
+- 코인 아이콘
+https://coinicons-api.vercel.app/api/icon/${coin_id}
+
+- 코인 일자별 상세정보
+https://ohlcv-api.nomadcoders.workers.dev?coinId={coin_id}
+
+
+------------------------------------------
+
