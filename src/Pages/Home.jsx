@@ -30,10 +30,8 @@ const CoinList = styled.ul`
     width: 100%;
 `;
 
-export default function Home() {
-    const { data, isLoading } = useQuery(['coins', 'coins-data'], getCoinData);
-
-    console.log(data && data[0]);
+export default function Home({ coin, isLoading }) {
+    console.log(coin && coin[0]);
     return (
         <PageWrapper>
             {isLoading ? (
@@ -42,8 +40,8 @@ export default function Home() {
                 <>
                     <HomeTitle>Ryan Coins</HomeTitle>
                     <CoinList>
-                        {data.slice(0, 100).map((coin) => {
-                            return <Coin key={coin.id} coin={coin} />;
+                        {coin.slice(0, 100).map((item) => {
+                            return <Coin key={item.id} item={item} />;
                         })}
                     </CoinList>
                 </>

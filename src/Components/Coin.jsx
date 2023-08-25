@@ -37,21 +37,21 @@ const GoDetail = styled.button`
     }
 `;
 
-export default function Coin({ coin }) {
+export default function Coin({ item }) {
     const navigate = useNavigate();
 
     return (
         <CoinWrapper>
             <NameLogo>
                 <Logo
-                    src={`https://coinicons-api.vercel.app/api/icon/${coin.symbol.toLowerCase()}`}
+                    src={`https://coinicons-api.vercel.app/api/icon/${item.symbol.toLowerCase()}`}
                 />
 
-                <span>{coin.name}</span>
+                <span>{item.name}</span>
             </NameLogo>
             <GoDetail
                 onClick={() => {
-                    navigate(`/detail/${coin.id}`);
+                    navigate(`/detail/${item.id}`);
                 }}
             >
                 <FaCaretRight />
