@@ -21,7 +21,7 @@ const NameLogo = styled.div`
     align-items: center;
 `;
 
-const Logo = styled.img`
+export const Logo = styled.img`
     width: 36px;
     height: 36px;
     margin-right: 12px;
@@ -37,21 +37,21 @@ const GoDetail = styled.button`
     }
 `;
 
-export default function Coin({ item }) {
+export default function Coin({ coin }) {
     const navigate = useNavigate();
 
     return (
         <CoinWrapper>
             <NameLogo>
                 <Logo
-                    src={`https://coinicons-api.vercel.app/api/icon/${item.symbol.toLowerCase()}`}
+                    src={`https://coinicons-api.vercel.app/api/icon/${coin.symbol.toLowerCase()}`}
                 />
 
-                <span>{item.name}</span>
+                <span>{coin.name}</span>
             </NameLogo>
             <GoDetail
                 onClick={() => {
-                    navigate(`/detail/${item.id}`);
+                    navigate(`/detail/${coin.id}`);
                 }}
             >
                 <FaCaretRight />
