@@ -3,7 +3,8 @@ import { Loader, PageWrapper } from './Home';
 import { useQuery } from '@tanstack/react-query';
 import { getInfo, getPrice, getTickers } from '../api';
 import { styled } from 'styled-components';
-import { Logo } from '../Components/Coin';
+import DetailOverView from '../Components/Detail/DetailOverView';
+import DetailPrice from '../Components/Detail/DetailPrice';
 
 const DetailGrid = styled.div`
     height: 100vh;
@@ -12,16 +13,12 @@ const DetailGrid = styled.div`
     grid-template-rows: 1fr 1fr 1fr;
 `;
 
-const DetailTitle = styled.h1`
+export const DetailTitle = styled.h1`
     font-size: 36px;
     margin-bottom: 24px;
     text-align: center;
     color: ${(props) => props.theme.accent_light};
 `;
-
-const DetailOverview = styled.div``;
-
-const DetailPrice = styled.div``;
 
 const DetailGraph = styled.div``;
 
@@ -56,26 +53,8 @@ export default function Detail() {
                 <Loader />
             ) : (
                 <DetailGrid>
-                    <DetailOverview className="detail_item">
-                        <DetailTitle
-                            style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                            }}
-                        >
-                            <Logo
-                                src={`https://coinicons-api.vercel.app/api/icon/${infoData.symbol.toLowerCase()}`}
-                            />
-                            <span>{infoData.name}</span>
-                            <span>({infoData.symbol})</span>
-                        </DetailTitle>
-                        <p>{infoData.description}</p>
-                    </DetailOverview>
-                    <DetailPrice className="detail_item">
-                        <DetailTitle>Price</DetailTitle>
-                        {coinId}
-                    </DetailPrice>
+                    <DetailOverView infoData={infoData} />
+                    <DetailPrice tickersData={tickersData} />
                     <DetailGraph className="detail_item">
                         <DetailTitle>Graph</DetailTitle>
                         {coinId}
