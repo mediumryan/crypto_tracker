@@ -15,6 +15,7 @@ export const PageWrapper = styled.div`
 
 export const Loader = styled.div`
     font-size: 48px;
+    color: ${(props) => props.theme.text_dark};
 `;
 
 const HomeTitle = styled.h1`

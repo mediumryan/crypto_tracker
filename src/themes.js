@@ -7,4 +7,11 @@ export const lightTheme = {
     accent_dark: '#00668c',
 };
 
-export const darkTheme = {};
+export const darkTheme = {
+    bg_light: '#313d44',
+    bg_dark: '#1d1c1c',
+    text_light: '#fffefb',
+    text_dark: '#f5f4f1',
+    accent_dark: '#71c4ef',
+    accent_light: '#00668c',
+};

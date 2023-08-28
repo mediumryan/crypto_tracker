@@ -11,6 +11,7 @@ const DetailGrid = styled.div`
     display: grid;
     grid-template-columns: 1fr;
     margin-bottom: 24px;
+    color: ${(props) => props.theme.text_dark};
 `;
 
 export const DetailTitle = styled.h1`
@@ -20,7 +21,7 @@ export const DetailTitle = styled.h1`
     color: ${(props) => props.theme.accent_light};
 `;
 
-export default function Detail() {
+export default function Detail({ currentTheme }) {
     const { coinId } = useParams();
     const { data: priceData, isLoading: priceIsLoading } = useQuery(
         ['coins', 'coins-price'],
@@ -48,12 +49,15 @@ export default function Detail() {
     return (
         <PageWrapper>
             {priceIsLoading || tickersIsLoading || infoIsLoading ? (
-                <Loader />
+                <Loader>Loading...</Loader>
             ) : (
                 <DetailGrid>
                     <DetailOverView infoData={infoData} />
                     <DetailPrice tickersData={tickersData} />
-                    <DetailChart priceData={priceData} />
+                    <DetailChart
+                        priceData={priceData}
+                        currentTheme={currentTheme}
+                    />
                 </DetailGrid>
             )}
         </PageWrapper>

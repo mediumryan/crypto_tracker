@@ -35,8 +35,9 @@ const OtherPriceItems = styled.div`
     font-size: 20px;
     margin-bottom: 24px;
     padding: 12px 24px;
-    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
-        rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+    box-shadow: ${(props) => props.theme.bg_dark} 0px 8px 8px -8px,
+        ${(props) => props.theme.bg_dark} 0px 30px 60px -30px,
+        ${(props) => props.theme.bg_dark} 0px 30px 60px -30px inset;
     border-radius: 4px;
 `;
 

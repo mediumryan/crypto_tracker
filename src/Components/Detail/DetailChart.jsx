@@ -4,6 +4,7 @@ import { DetailTitle } from '../../Pages/Detail';
 import { motion } from 'framer-motion';
 import { styled } from 'styled-components';
 import { wrapperVariants } from './DetailOverView';
+import { darkTheme } from '../../themes';
 
 const DetailChartWrapper = styled(motion.div)`
     align-self: center;
@@ -13,7 +14,7 @@ const StyledChart = styled(Chart)`
     margin-top: 20px;
 `;
 
-export default function DetailChart({ priceData }) {
+export default function DetailChart({ priceData, currentTheme }) {
     const editData = priceData.slice(6, 21);
 
     const xCategories = editData.map((item) => {
@@ -34,6 +35,13 @@ export default function DetailChart({ priceData }) {
                 },
             },
         },
+        yaxis: {
+            labels: {
+                style: {
+                    fontSize: '12px',
+                },
+            },
+        },
         dataLabels: {
             enabled: false,
         },
@@ -47,6 +55,9 @@ export default function DetailChart({ priceData }) {
                 width: 12,
                 height: 12,
             },
+        },
+        theme: {
+            mode: currentTheme === darkTheme ? 'dark' : 'light',
         },
     };
 
