@@ -1,20 +1,25 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { styled } from 'styled-components';
 import { DetailTitle } from '../../Pages/Detail';
+import { FaArrowDown, FaArrowUp, FaMinus } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+import { wrapperVariants } from './DetailOverView';
 
-const DetailPriceWrapper = styled.div``;
+const DetailPriceWrapper = styled(motion.div)`
+    align-self: center;
+`;
 
 const PriceContents = styled.div`
-    display: flex;
+    display: grid;
+    grid-template-columns: 2fr 3fr;
     align-items: center;
 `;
 
 const CurrentPrice = styled.div`
     display: flex;
     flex-direction: column;
-    flex-basis: 35%;
     color: ${(props) => props.theme.accent_dark};
-    font-size: 24px;
+    font-size: 28px;
     align-items: center;
     margin-right: 24px;
     span {
@@ -22,17 +27,33 @@ const CurrentPrice = styled.div`
     }
 `;
 
-const OtherPrices = styled.div`
+const OtherPrices = styled.div``;
+
+const OtherPriceItems = styled.div`
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    flex-basis: 65%;
+    grid-template-columns: 2fr 2fr 1fr;
+    font-size: 20px;
+    margin-bottom: 24px;
+    padding: 12px 24px;
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
+        rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+    border-radius: 4px;
 `;
 
 const PriceName = styled.span``;
 
 const PriceValue = styled.span``;
 
-const PriceChange = styled.span``;
+const PriceChange = styled.span`
+    display: flex;
+    align-items: center;
+    color: ${(props) =>
+        props.priceColor > 0
+            ? '#0000FF'
+            : props.priceColor === 0
+            ? props.theme.text_dark
+            : '#FF0000'};
+`;
 
 export default function DetailPrice({ tickersData }) {
     const currentPrice = tickersData.quotes.USD.price.toFixed(2);
@@ -47,7 +68,12 @@ export default function DetailPrice({ tickersData }) {
         { label: '1Year ago', prop: 'percent_change_1y' },
     ];
     return (
-        <DetailPriceWrapper className="detail_item">
+        <DetailPriceWrapper
+            className="detail_item"
+            variants={wrapperVariants}
+            initial="initial"
+            animate="animate"
+        >
             <DetailTitle>Price</DetailTitle>
             <PriceContents>
                 <CurrentPrice>
@@ -56,7 +82,7 @@ export default function DetailPrice({ tickersData }) {
                 </CurrentPrice>
                 <OtherPrices>
                     {timeData.map((time) => (
-                        <React.Fragment key={time.label}>
+                        <OtherPriceItems key={time.label}>
                             <PriceName>{time.label}</PriceName>
                             <PriceValue>
                                 {(
@@ -65,10 +91,19 @@ export default function DetailPrice({ tickersData }) {
                                 ).toFixed(2)}{' '}
                                 USD
                             </PriceValue>
-                            <PriceChange>
+                            <PriceChange
+                                priceColor={tickersData.quotes.USD[time.prop]}
+                            >
                                 {tickersData.quotes.USD[time.prop].toFixed(2)}%
+                                {tickersData.quotes.USD[time.prop] > 0 ? (
+                                    <FaArrowUp />
+                                ) : tickersData.quotes.USD[time.prop] === 0 ? (
+                                    <FaMinus />
+                                ) : (
+                                    <FaArrowDown />
+                                )}
                             </PriceChange>
-                        </React.Fragment>
+                        </OtherPriceItems>
                     ))}
                 </OtherPrices>
             </PriceContents>

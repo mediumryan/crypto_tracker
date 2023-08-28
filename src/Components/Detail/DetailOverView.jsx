@@ -2,8 +2,9 @@ import React from 'react';
 import { styled } from 'styled-components';
 import { Logo } from '../Coin';
 import { DetailTitle } from '../../Pages/Detail';
+import { motion } from 'framer-motion';
 
-const DetailOverviewWrapper = styled.div`
+const DetailOverviewWrapper = styled(motion.div)`
     display: flex;
     align-items: center;
 `;
@@ -44,9 +45,30 @@ const OverView = styled.div`
     }
 `;
 
+export const wrapperVariants = {
+    initial: {
+        opacity: 0,
+        scale: 0,
+        y: -200,
+    },
+    animate: {
+        opacity: 1,
+        scale: 1,
+        y: 0,
+        transition: {
+            duration: 1.2,
+        },
+    },
+};
+
 export default function DetailOverView({ infoData }) {
     return (
-        <DetailOverviewWrapper className="detail_item">
+        <DetailOverviewWrapper
+            className="detail_item"
+            variants={wrapperVariants}
+            initial="initial"
+            animate="animate"
+        >
             <DetailTitle
                 style={{
                     display: 'flex',

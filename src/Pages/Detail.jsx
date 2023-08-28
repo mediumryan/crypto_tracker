@@ -5,12 +5,12 @@ import { getInfo, getPrice, getTickers } from '../api';
 import { styled } from 'styled-components';
 import DetailOverView from '../Components/Detail/DetailOverView';
 import DetailPrice from '../Components/Detail/DetailPrice';
+import DetailChart from '../Components/Detail/DetailChart';
 
 const DetailGrid = styled.div`
-    height: 100vh;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    margin-bottom: 24px;
 `;
 
 export const DetailTitle = styled.h1`
@@ -19,8 +19,6 @@ export const DetailTitle = styled.h1`
     text-align: center;
     color: ${(props) => props.theme.accent_light};
 `;
-
-const DetailGraph = styled.div``;
 
 export default function Detail() {
     const { coinId } = useParams();
@@ -55,10 +53,7 @@ export default function Detail() {
                 <DetailGrid>
                     <DetailOverView infoData={infoData} />
                     <DetailPrice tickersData={tickersData} />
-                    <DetailGraph className="detail_item">
-                        <DetailTitle>Graph</DetailTitle>
-                        {coinId}
-                    </DetailGraph>
+                    <DetailChart priceData={priceData} />
                 </DetailGrid>
             )}
         </PageWrapper>

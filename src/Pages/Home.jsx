@@ -6,7 +6,7 @@ import Coin from '../Components/Coin';
 
 export const PageWrapper = styled.div`
     background-color: ${(props) => props.theme.bg_light};
-    height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
