@@ -7,6 +7,9 @@ import { wrapperVariants } from './DetailOverView';
 
 const DetailPriceWrapper = styled(motion.div)`
     align-self: center;
+    @media only screen and (min-width: 768px) and (max-width: 1024px) {
+        margin: var(--margin-medium-large) var(--margin-very-large);
+    }
 `;
 
 const PriceContents = styled.div`
@@ -19,11 +22,11 @@ const CurrentPrice = styled.div`
     display: flex;
     flex-direction: column;
     color: ${(props) => props.theme.accent_dark};
-    font-size: 28px;
+    font-size: var(--font-size-medium);
     align-items: center;
-    margin-right: 24px;
+    margin-right: var(--margin-medium-large);
     span {
-        margin: 8px 0;
+        margin: var(--margin-small) 0;
     }
 `;
 
@@ -32,9 +35,9 @@ const OtherPrices = styled.div``;
 const OtherPriceItems = styled.div`
     display: grid;
     grid-template-columns: 2fr 2fr 1fr;
-    font-size: 20px;
-    margin-bottom: 24px;
-    padding: 12px 24px;
+    font-size: var(--font-size-small);
+    margin-bottom: var(--margin-medium-large);
+    padding: var(--padding-double-medium);
     box-shadow: ${(props) => props.theme.bg_dark} 0px 8px 8px -8px,
         ${(props) => props.theme.bg_dark} 0px 30px 60px -30px,
         ${(props) => props.theme.bg_dark} 0px 30px 60px -30px inset;
@@ -50,10 +53,10 @@ const PriceChange = styled.span`
     align-items: center;
     color: ${(props) =>
         props.priceColor > 0
-            ? '#0000FF'
+            ? '#8CC63F'
             : props.priceColor === 0
             ? props.theme.text_dark
-            : '#FF0000'};
+            : '#FF5733'};
 `;
 
 export default function DetailPrice({ tickersData }) {

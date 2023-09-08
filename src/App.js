@@ -21,7 +21,7 @@ const GoBackBtn = styled.button`
     position: fixed;
     top: 24px;
     left: 24px;
-    font-size: 36px;
+    font-size: var(--font-size-medium-large);
     color: ${(props) => props.theme.accent_dark};
     &:hover {
         animation: ${backAnimation} 1.2s linear infinite;
@@ -41,7 +41,7 @@ const ThemeToggleBtn = styled.button`
     position: fixed;
     bottom: 24px;
     left: 24px;
-    font-size: 36px;
+    font-size: var(--font-size-medium-large);
     color: ${(props) => props.theme.accent_dark};
     &:hover {
         animation: ${btnAnimation} 2s linear infinite;

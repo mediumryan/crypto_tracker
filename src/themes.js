@@ -12,6 +12,6 @@ export const darkTheme = {
     bg_dark: '#1d1c1c',
     text_light: '#fffefb',
     text_dark: '#f5f4f1',
-    accent_dark: '#71c4ef',
-    accent_light: '#00668c',
+    accent_light: '#71c4ef',
+    accent_dark: '#00668c',
 };

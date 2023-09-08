@@ -7,9 +7,9 @@ const CoinWrapper = styled.li`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 12px 24px;
-    margin-bottom: 12px;
-    font-size: 24px;
+    padding: var(--padding-double-medium);
+    margin-bottom: var(--margin-medium);
+    font-size: var(--font-size-medium);
     border-radius: 20px;
     box-shadow: ${(props) => props.theme.bg_dark} 0px 8px 8px -8px,
         ${(props) => props.theme.bg_dark} 0px 30px 60px -30px,
@@ -27,11 +27,11 @@ const NameLogo = styled.div`
 export const Logo = styled.img`
     width: 36px;
     height: 36px;
-    margin-right: 12px;
+    margin-right: var(--margin-medium);
 `;
 
 const GoDetail = styled.button`
-    font-size: 48px;
+    font-size: var(--font-size-large);
     color: ${(props) => props.theme.accent_light};
     transition: 300ms all;
     &:hover {

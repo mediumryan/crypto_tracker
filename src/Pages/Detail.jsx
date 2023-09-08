@@ -10,15 +10,20 @@ import DetailChart from '../Components/Detail/DetailChart';
 const DetailGrid = styled.div`
     display: grid;
     grid-template-columns: 1fr;
-    margin-bottom: 24px;
+    margin-bottom: var(--margin-medium-large);
     color: ${(props) => props.theme.text_dark};
 `;
 
 export const DetailTitle = styled.h1`
-    font-size: 36px;
-    margin-bottom: 24px;
+    font-size: var(--font-size-medium-large);
+    margin-bottom: var(--margin-medium-large);
     text-align: center;
     color: ${(props) => props.theme.accent_light};
+    @media only screen and (min-width: 768px) and (max-width: 1024px) {
+        border-bottom: 1px solid white;
+        width: 100%;
+        padding-bottom: 24px;
+    }
 `;
 
 export default function Detail({ currentTheme }) {

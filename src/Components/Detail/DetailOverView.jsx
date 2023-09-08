@@ -6,42 +6,70 @@ import { motion } from 'framer-motion';
 
 const DetailOverviewWrapper = styled(motion.div)`
     display: flex;
+    flex-direction: column;
     align-items: center;
+    min-height: 40vh;
+    @media only screen and (min-width: 768px) and (max-width: 1024px) {
+        min-height: 30vh;
+        margin: var(--margin-medium-large) var(--margin-very-large);
+    }
+`;
+
+const OverviewContents = styled.div`
+    display: flex;
 `;
 
 const RankType = styled.div`
-    height: 100%;
+    flex-basis: 40%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    margin: 0 24px;
-    div {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        span:first-child {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-        span:last-child {
-            font-size: 18px;
-        }
+    margin: var(--margin-medium);
+    padding: var(--padding-double-large);
+    border-radius: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+        rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    @media only screen and (min-width: 768px) and (max-width: 1024px) {
+        border-bottom: 1px solid white;
+        width: 100%;
+        padding-bottom: 24px;
+        flex-basis: 30%;
+    }
+`;
+
+const RankTypeItem = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    span:first-child {
+        margin-bottom: var(--margin-medium);
+        font-weight: 700;
+        font-size: var(--font-size-medium);
     }
 `;
 
 const OverView = styled.div`
+    flex-basis: 60%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: var(--margin-medium);
+    padding: var(--padding-double-large);
+    border-radius: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+        rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
     h3 {
-        margin: 24px 12px;
-        font-size: 24px;
+        margin-bottom: var(--margin-medium);
+        font-size: var(--font-size-medium);
         font-weight: 700;
     }
     p {
-        padding-left: 48px;
+        padding-left: var(--padding-very-large);
+        line-height: 1.5;
+    }
+    @media only screen and (min-width: 768px) and (max-width: 1024px) {
+        flex-basis: 70%;
     }
 `;
 
@@ -82,20 +110,22 @@ export default function DetailOverView({ infoData }) {
                 <span>{infoData.name}</span>
                 <span>({infoData.symbol})</span>
             </DetailTitle>
-            <RankType>
-                <div>
-                    <span>Rank</span>
-                    <span>{infoData.rank}</span>
-                </div>
-                <div>
-                    <span>Type</span>
-                    <span>{infoData.type}</span>
-                </div>
-            </RankType>
-            <OverView>
-                <h3>OverView</h3>
-                <p>{infoData.description}</p>
-            </OverView>
+            <OverviewContents>
+                <RankType>
+                    <RankTypeItem>
+                        <span>Rank</span>
+                        <span>{infoData.rank}</span>
+                    </RankTypeItem>
+                    <RankTypeItem>
+                        <span>Type</span>
+                        <span>{infoData.type}</span>
+                    </RankTypeItem>
+                </RankType>
+                <OverView>
+                    <h3>OverView</h3>
+                    <p>{infoData.description}</p>
+                </OverView>
+            </OverviewContents>
         </DetailOverviewWrapper>
     );
 }

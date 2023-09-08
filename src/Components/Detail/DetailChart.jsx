@@ -8,10 +8,13 @@ import { darkTheme } from '../../themes';
 
 const DetailChartWrapper = styled(motion.div)`
     align-self: center;
+    @media only screen and (min-width: 768px) and (max-width: 1024px) {
+        margin: var(--margin-medium-large) var(--margin-very-large);
+    }
 `;
 
 const StyledChart = styled(Chart)`
-    margin-top: 20px;
+    margin-top: var(--margin-medium-large);
 `;
 
 export default function DetailChart({ priceData, currentTheme }) {
