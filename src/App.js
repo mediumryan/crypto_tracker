@@ -26,6 +26,9 @@ const GoBackBtn = styled.button`
     &:hover {
         animation: ${backAnimation} 1.2s linear infinite;
     }
+    @media only screen and (min-width: 320px) and (max-width: 768px) {
+        top: 8px;
+    }
 `;
 
 const btnAnimation = keyframes`
@@ -39,12 +42,15 @@ const btnAnimation = keyframes`
 
 const ThemeToggleBtn = styled.button`
     position: fixed;
-    bottom: 24px;
-    left: 24px;
+    top: 24px;
+    right: 24px;
     font-size: var(--font-size-medium-large);
     color: ${(props) => props.theme.accent_dark};
     &:hover {
         animation: ${btnAnimation} 2s linear infinite;
+    }
+    @media only screen and (min-width: 320px) and (max-width: 768px) {
+        top: 8px;
     }
 `;
 

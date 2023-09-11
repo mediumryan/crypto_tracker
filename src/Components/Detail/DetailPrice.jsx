@@ -8,7 +8,12 @@ import { wrapperVariants } from './DetailOverView';
 const DetailPriceWrapper = styled(motion.div)`
     align-self: center;
     @media only screen and (min-width: 768px) and (max-width: 1024px) {
+        min-height: 30vh;
         margin: var(--margin-medium-large) var(--margin-very-large);
+    }
+    @media only screen and (min-width: 320px) and (max-width: 768px) {
+        margin: var(--margin-very-large) auto;
+        padding: var(--padding-large) 0;
     }
 `;
 
@@ -19,15 +24,15 @@ const PriceContents = styled.div`
 `;
 
 const CurrentPrice = styled.div`
+    height: 100%;
     display: flex;
     flex-direction: column;
-    color: ${(props) => props.theme.accent_dark};
-    font-size: var(--font-size-medium);
+    justify-content: space-evenly;
     align-items: center;
+    text-align: center;
+    color: ${(props) => props.theme.accent_dark};
+    font-size: var(--font-size-medium-large);
     margin-right: var(--margin-medium-large);
-    span {
-        margin: var(--margin-small) 0;
-    }
 `;
 
 const OtherPrices = styled.div``;
@@ -62,14 +67,14 @@ const PriceChange = styled.span`
 export default function DetailPrice({ tickersData }) {
     const currentPrice = tickersData.quotes.USD.price.toFixed(2);
     const timeData = [
-        { label: '15Minutes ago', prop: 'percent_change_15m' },
-        { label: '30Minutes ago', prop: 'percent_change_30m' },
-        { label: '1Hour ago', prop: 'percent_change_1h' },
-        { label: '6Hours ago', prop: 'percent_change_6h' },
-        { label: '12Hours ago', prop: 'percent_change_12h' },
-        { label: '7Days ago', prop: 'percent_change_7d' },
-        { label: '30Days ago', prop: 'percent_change_30d' },
-        { label: '1Year ago', prop: 'percent_change_1y' },
+        { label: '15M ago', prop: 'percent_change_15m' },
+        { label: '30M ago', prop: 'percent_change_30m' },
+        { label: '1H ago', prop: 'percent_change_1h' },
+        { label: '6H ago', prop: 'percent_change_6h' },
+        { label: '12H ago', prop: 'percent_change_12h' },
+        { label: '7D ago', prop: 'percent_change_7d' },
+        { label: '30D ago', prop: 'percent_change_30d' },
+        { label: '1Y ago', prop: 'percent_change_1y' },
     ];
     return (
         <DetailPriceWrapper
@@ -78,11 +83,11 @@ export default function DetailPrice({ tickersData }) {
             initial="initial"
             animate="animate"
         >
-            <DetailTitle>Price</DetailTitle>
+            <DetailTitle>Price(USD)</DetailTitle>
             <PriceContents>
                 <CurrentPrice>
                     <PriceName>Current Price</PriceName>
-                    <PriceValue>{currentPrice} USD</PriceValue>
+                    <PriceValue>{currentPrice}</PriceValue>
                 </CurrentPrice>
                 <OtherPrices>
                     {timeData.map((time) => (
@@ -92,8 +97,7 @@ export default function DetailPrice({ tickersData }) {
                                 {(
                                     currentPrice *
                                     (100 - tickersData.quotes.USD[time.prop])
-                                ).toFixed(2)}{' '}
-                                USD
+                                ).toFixed(2)}
                             </PriceValue>
                             <PriceChange
                                 priceColor={tickersData.quotes.USD[time.prop]}

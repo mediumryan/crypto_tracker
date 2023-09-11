@@ -13,6 +13,11 @@ export const PageWrapper = styled.div`
     padding: var(--padding-double-page);
     @media only screen and (min-width: 768px) and (max-width: 1024px) {
         padding: var(--padding-double-large);
+        height: 180vh;
+    }
+    @media only screen and (min-width: 320px) and (max-width: 768px) {
+        padding: var(--padding-double-medium);
+        height: 180vh;
     }
 `;
 

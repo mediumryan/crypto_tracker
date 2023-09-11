@@ -9,7 +9,13 @@ import { darkTheme } from '../../themes';
 const DetailChartWrapper = styled(motion.div)`
     align-self: center;
     @media only screen and (min-width: 768px) and (max-width: 1024px) {
+        min-height: 30vh;
         margin: var(--margin-medium-large) var(--margin-very-large);
+    }
+    @media only screen and (min-width: 320px) and (max-width: 768px) {
+        margin: var(--margin-very-large) auto;
+        padding: var(--padding-large) 0;
+        width: 100%;
     }
 `;
 
@@ -34,14 +40,15 @@ export default function DetailChart({ priceData, currentTheme }) {
             categories: xCategories,
             labels: {
                 style: {
-                    fontSize: '12px',
+                    fontSize: window.innerWidth > 768 ? '12px' : '6px',
+                    marginBottom: 64,
                 },
             },
         },
         yaxis: {
             labels: {
                 style: {
-                    fontSize: '12px',
+                    fontSize: window.innerWidth > 768 ? '12px' : '6px',
                 },
             },
         },
@@ -53,7 +60,7 @@ export default function DetailChart({ priceData, currentTheme }) {
             colors: ['#FF5733', '#2196F3', '#FFC107', '#4CAF50'], // Added colors for open, close, low, high
         },
         legend: {
-            fontSize: '14px', // Styling for legend
+            fontSize: window.innerWidth > 768 ? '12px' : '6px',
             markers: {
                 width: 12,
                 height: 12,
