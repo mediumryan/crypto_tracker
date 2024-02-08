@@ -1,73 +1,23 @@
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import './CSS/index.css';
 // import pages
 import Home from './Pages/Home';
 import Detail from './Pages/Detail';
-import { ThemeProvider, keyframes, styled } from 'styled-components';
+import { ThemeProvider } from 'styled-components';
 import { useState } from 'react';
-import { darkTheme, lightTheme } from './themes';
-import { FaBackward, FaRegMoon, FaSun } from 'react-icons/fa';
-
-const goBackBtnAnimation = keyframes`
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-20px);
-    }
-`;
-
-const GoBackBtn = styled.button`
-    position: fixed;
-    top: 1.5rem;
-    left: 2rem;
-    font-size: 1.15rem;
-    color: ${(props) => props.theme.accent_dark};
-    &:hover {
-        animation: ${goBackBtnAnimation} 750ms linear infinite;
-    }
-    @media only screen and (min-width: 320px) and (max-width: 768px) {
-        top: 8px;
-    }
-`;
-
-const btnAnimation = keyframes`
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-`;
-
-const ThemeToggleBtn = styled.button`
-    position: fixed;
-    top: 24px;
-    right: 24px;
-    font-size: var(--font-size-medium-large);
-    color: ${(props) => props.theme.accent_dark};
-    &:hover {
-        animation: ${btnAnimation} 2s linear infinite;
-    }
-    @media only screen and (min-width: 320px) and (max-width: 768px) {
-        top: 8px;
-    }
-`;
+import { lightTheme } from './themes';
+import Header from './Components/Header/Header';
 
 function App() {
     const [currentTheme, setCurrentTheme] = useState(lightTheme);
 
-    const toggleTheme = () => {
-        setCurrentTheme((prevTheme) =>
-            prevTheme === lightTheme ? darkTheme : lightTheme
-        );
-    };
-
-    const navigate = useNavigate();
-
     return (
         <ThemeProvider theme={currentTheme}>
             <div style={{ position: 'relative' }}>
+                <Header
+                    currentTheme={currentTheme}
+                    setCurrentTheme={setCurrentTheme}
+                />
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route
@@ -75,16 +25,6 @@ function App() {
                         element={<Detail currentTheme={currentTheme} />}
                     />
                 </Routes>
-                <GoBackBtn
-                    onClick={() => {
-                        navigate('/');
-                    }}
-                >
-                    <FaBackward />
-                </GoBackBtn>
-                <ThemeToggleBtn onClick={toggleTheme}>
-                    {currentTheme === lightTheme ? <FaRegMoon /> : <FaSun />}
-                </ThemeToggleBtn>
             </div>
         </ThemeProvider>
     );

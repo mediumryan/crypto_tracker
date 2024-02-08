@@ -47,7 +47,6 @@ export default function Home() {
                 <Loader>Loading...</Loader>
             ) : (
                 <>
-                    <HomeTitle>Ryan Coins</HomeTitle>
                     <CoinList>
                         {data.slice(0, 100).map((coin) => {
                             return <Coin key={coin.id} coin={coin} />;
