@@ -8,7 +8,7 @@ import { useState } from 'react';
 import { darkTheme, lightTheme } from './themes';
 import { FaBackward, FaRegMoon, FaSun } from 'react-icons/fa';
 
-const backAnimation = keyframes`
+const goBackBtnAnimation = keyframes`
     from {
         transform: translateX(0);
     }
@@ -19,12 +19,12 @@ const backAnimation = keyframes`
 
 const GoBackBtn = styled.button`
     position: fixed;
-    top: 24px;
-    left: 24px;
-    font-size: var(--font-size-medium-large);
+    top: 1.5rem;
+    left: 2rem;
+    font-size: 1.15rem;
     color: ${(props) => props.theme.accent_dark};
     &:hover {
-        animation: ${backAnimation} 1.2s linear infinite;
+        animation: ${goBackBtnAnimation} 750ms linear infinite;
     }
     @media only screen and (min-width: 320px) and (max-width: 768px) {
         top: 8px;
