@@ -1,16 +1,20 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
-import { getCoinData } from '../api';
 import { styled } from 'styled-components';
+// import api data
+import { getCoinData } from '../api';
+// import components
 import Coin from '../Components/Coin';
+import Loader from '../Components/Loader';
 
 export const PageWrapper = styled.div`
-    background-color: ${(props) => props.theme.bg_light};
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: var(--padding-double-page);
+    justify-content: center;
+    margin-top: 2rem;
+    background-color: ${(props) => props.theme.bg_light};
+    border-radius: 4px;
     @media only screen and (min-width: 768px) and (max-width: 1024px) {
         padding: var(--padding-double-large);
         height: 180vh;
@@ -21,21 +25,7 @@ export const PageWrapper = styled.div`
     }
 `;
 
-export const Loader = styled.div`
-    font-size: var(--font-size-large);
-    color: ${(props) => props.theme.text_dark};
-`;
-
-const HomeTitle = styled.h1`
-    font-size: var(--font-size-large);
-    font-weight: 700;
-    font-style: italic;
-    color: ${(props) => props.theme.accent_dark};
-    margin-bottom: var(--margin-very-large);
-    cursor: default;
-`;
-
-const CoinList = styled.ul`
+const Coins = styled.ul`
     width: 100%;
 `;
 
@@ -44,15 +34,13 @@ export default function Home() {
     return (
         <PageWrapper>
             {isLoading ? (
-                <Loader>Loading...</Loader>
+                <Loader />
             ) : (
-                <>
-                    <CoinList>
-                        {data.slice(0, 100).map((coin) => {
-                            return <Coin key={coin.id} coin={coin} />;
-                        })}
-                    </CoinList>
-                </>
+                <Coins>
+                    {data.slice(0, 50).map((coin) => {
+                        return <Coin key={coin.id} coin={coin} />;
+                    })}
+                </Coins>
             )}
         </PageWrapper>
     );

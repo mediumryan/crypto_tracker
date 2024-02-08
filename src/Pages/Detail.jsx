@@ -1,11 +1,12 @@
 import { useParams } from 'react-router-dom';
-import { Loader, PageWrapper } from './Home';
+import { PageWrapper } from './Home';
 import { useQuery } from '@tanstack/react-query';
 import { getInfo, getPrice, getTickers } from '../api';
 import { styled } from 'styled-components';
 import DetailOverView from '../Components/Detail/DetailOverView';
 import DetailPrice from '../Components/Detail/DetailPrice';
 import DetailChart from '../Components/Detail/DetailChart';
+import Loader from '../Components/Loader';
 
 const DetailGrid = styled.div`
     display: grid;
@@ -54,7 +55,7 @@ export default function Detail({ currentTheme }) {
     return (
         <PageWrapper>
             {priceIsLoading || tickersIsLoading || infoIsLoading ? (
-                <Loader>Loading...</Loader>
+                <Loader />
             ) : (
                 <DetailGrid>
                     <DetailOverView infoData={infoData} />

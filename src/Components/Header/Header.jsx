@@ -8,7 +8,8 @@ const HeaderWrapper = styled.header`
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: 1rem 2rem;
+    border-bottom: 2px solid ${(props) => props.theme.accent_dark};
+    padding-bottom: 1rem;
 `;
 
 const HeaderLogo = styled.div`

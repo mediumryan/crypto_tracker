@@ -1,19 +1,18 @@
-import React from 'react';
 import { styled } from 'styled-components';
-import { FaCaretRight } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
+// import icons
+import { FaCaretRight } from 'react-icons/fa';
 
 const CoinWrapper = styled.li`
+    min-height: 80px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: var(--padding-double-medium);
-    margin-bottom: var(--margin-medium);
-    font-size: var(--font-size-medium);
-    border-radius: 20px;
-    box-shadow: ${(props) => props.theme.bg_dark} 0px 8px 8px -8px,
-        ${(props) => props.theme.bg_dark} 0px 30px 60px -30px,
-        ${(props) => props.theme.bg_dark} 0px 30px 60px -30px inset;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 3px solid ${(props) => props.theme.bg_dark};
+    border-radius: 4px;
+    font-size: 0.85rem;
 `;
 
 const NameLogo = styled.div`
@@ -27,16 +26,15 @@ const NameLogo = styled.div`
 export const Logo = styled.img`
     width: 36px;
     height: 36px;
-    margin-right: var(--margin-medium);
+    margin-right: 1rem;
 `;
 
 const GoDetail = styled.button`
-    font-size: var(--font-size-large);
-    color: ${(props) => props.theme.accent_light};
+    font-size: 1.15rem;
+    color: ${(props) => props.theme.text_dark};
     transition: 300ms all;
     &:hover {
-        opacity: 0.77;
-        transform: scale(1.15);
+        color: ${(props) => props.theme.accent_dark};
     }
 `;
 
