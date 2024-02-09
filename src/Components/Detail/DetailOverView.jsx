@@ -1,21 +1,28 @@
 import React from 'react';
 import { styled } from 'styled-components';
 import { Logo } from '../Coin';
-import { DetailTitle } from '../../Pages/Detail';
 import { motion } from 'framer-motion';
 
 const DetailOverviewWrapper = styled(motion.div)`
+    flex-basis: 25%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    min-height: 40vh;
+    padding: 1rem 2rem;
     @media only screen and (min-width: 768px) and (max-width: 1024px) {
-        min-height: 30vh;
-        margin: var(--margin-medium-large) var(--margin-very-large);
     }
     @media only screen and (min-width: 320px) and (max-width: 768px) {
-        margin: var(--margin-very-large) auto;
-        padding: var(--padding-large) 0;
+    }
+`;
+
+export const DetailTitle = styled.h1`
+    font-size: 1.15rem;
+    margin: 1rem 0;
+    text-align: center;
+    color: ${(props) => props.theme.accent};
+    @media only screen and (min-width: 768px) and (max-width: 1024px) {
+        border-bottom: 1px solid ${(props) => props.theme.text_dark};
+        width: 100%;
+        padding-bottom: 1.5rem;
     }
 `;
 
@@ -71,14 +78,6 @@ const OverView = styled.div`
     border-radius: 20px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
         rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-    h3 {
-        margin-bottom: var(--margin-medium);
-        font-size: var(--font-size-medium);
-        font-weight: 700;
-        @media only screen and (min-width: 768px) and (max-width: 1024px) {
-            margin: var(--margin-medium) 0;
-        }
-    }
     p {
         padding-left: var(--padding-very-large);
         line-height: 1.5;
@@ -144,7 +143,6 @@ export default function DetailOverView({ infoData }) {
                     </RankTypeItem>
                 </RankType>
                 <OverView>
-                    <h3>OverView</h3>
                     <p>{infoData.description}</p>
                 </OverView>
             </OverviewContents>

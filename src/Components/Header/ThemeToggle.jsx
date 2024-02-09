@@ -15,7 +15,7 @@ const ThemeToggleBtnAnimation = keyframes`
 
 const ThemeToggleBtn = styled.button`
     font-size: 1.15rem;
-    color: ${(props) => props.theme.accent_dark};
+    color: ${(props) => props.theme.accent};
     &:hover {
         animation: ${ThemeToggleBtnAnimation} 2s linear infinite;
     }

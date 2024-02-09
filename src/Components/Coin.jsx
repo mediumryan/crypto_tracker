@@ -34,7 +34,7 @@ const GoDetail = styled.button`
     color: ${(props) => props.theme.text_dark};
     transition: 300ms all;
     &:hover {
-        color: ${(props) => props.theme.accent_dark};
+        color: ${(props) => props.theme.accent};
     }
 `;
 

@@ -3,8 +3,7 @@ export const lightTheme = {
     text_dark: '#1d1c1c',
     bg_light: '#fffefb',
     bg_dark: '#f5f4f1',
-    accent_light: '#71c4ef',
-    accent_dark: '#00668c',
+    accent: '#00668c',
 };
 
 export const darkTheme = {
@@ -12,6 +11,5 @@ export const darkTheme = {
     bg_dark: '#1d1c1c',
     text_light: '#fffefb',
     text_dark: '#f5f4f1',
-    accent_light: '#71c4ef',
-    accent_dark: '#00668c',
+    accent: '#71c4ef',
 };

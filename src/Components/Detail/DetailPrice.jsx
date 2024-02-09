@@ -1,19 +1,14 @@
 import React from 'react';
 import { styled } from 'styled-components';
-import { DetailTitle } from '../../Pages/Detail';
 import { FaArrowDown, FaArrowUp, FaMinus } from 'react-icons/fa';
 import { motion } from 'framer-motion';
-import { wrapperVariants } from './DetailOverView';
+import { DetailTitle, wrapperVariants } from './DetailOverView';
 
 const DetailPriceWrapper = styled(motion.div)`
-    align-self: center;
+    flex-basis: 30%;
     @media only screen and (min-width: 768px) and (max-width: 1024px) {
-        min-height: 30vh;
-        margin: var(--margin-medium-large) var(--margin-very-large);
     }
     @media only screen and (min-width: 320px) and (max-width: 768px) {
-        margin: var(--margin-very-large) auto;
-        padding: var(--padding-large) 0;
     }
 `;
 

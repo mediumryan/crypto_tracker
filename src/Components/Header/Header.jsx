@@ -8,7 +8,7 @@ const HeaderWrapper = styled.header`
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    border-bottom: 2px solid ${(props) => props.theme.accent_dark};
+    border-bottom: 2px solid ${(props) => props.theme.accent};
     padding-bottom: 1rem;
 `;
 
@@ -16,7 +16,7 @@ const HeaderLogo = styled.div`
     font-size: 1.15rem;
     font-weight: 700;
     font-style: italic;
-    color: ${(props) => props.theme.accent_dark};
+    color: ${(props) => props.theme.accent};
 `;
 
 export default function Header({ currentTheme, setCurrentTheme }) {

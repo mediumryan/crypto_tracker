@@ -1,21 +1,14 @@
-import React from 'react';
 import Chart from 'react-apexcharts';
-import { DetailTitle } from '../../Pages/Detail';
 import { motion } from 'framer-motion';
 import { styled } from 'styled-components';
-import { wrapperVariants } from './DetailOverView';
+import { DetailTitle, wrapperVariants } from './DetailOverView';
 import { darkTheme } from '../../themes';
 
 const DetailChartWrapper = styled(motion.div)`
-    align-self: center;
+    flex-basis: 45%;
     @media only screen and (min-width: 768px) and (max-width: 1024px) {
-        min-height: 30vh;
-        margin: var(--margin-medium-large) var(--margin-very-large);
     }
     @media only screen and (min-width: 320px) and (max-width: 768px) {
-        margin: var(--margin-very-large) auto;
-        padding: var(--padding-large) 0;
-        width: 100%;
     }
 `;
 

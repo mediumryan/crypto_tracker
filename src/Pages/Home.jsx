@@ -8,6 +8,7 @@ import Loader from '../Components/Loader';
 
 export const PageWrapper = styled.div`
     height: 100%;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,12 +17,8 @@ export const PageWrapper = styled.div`
     background-color: ${(props) => props.theme.bg_light};
     border-radius: 4px;
     @media only screen and (min-width: 768px) and (max-width: 1024px) {
-        padding: var(--padding-double-large);
-        height: 180vh;
     }
     @media only screen and (min-width: 320px) and (max-width: 768px) {
-        padding: var(--padding-double-medium);
-        height: 180vh;
     }
 `;
 

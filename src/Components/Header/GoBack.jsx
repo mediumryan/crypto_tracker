@@ -14,7 +14,7 @@ const goBackBtnAnimation = keyframes`
 
 const GoBackBtn = styled.button`
     font-size: 1.15rem;
-    color: ${(props) => props.theme.accent_dark};
+    color: ${(props) => props.theme.accent};
     &:hover {
         animation: ${goBackBtnAnimation} 750ms linear infinite;
     }
