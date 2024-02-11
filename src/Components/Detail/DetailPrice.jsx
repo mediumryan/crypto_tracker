@@ -1,7 +1,8 @@
-import React from 'react';
 import { styled } from 'styled-components';
-import { FaArrowDown, FaArrowUp, FaMinus } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+// import icons
+import { FaArrowDown, FaArrowUp, FaMinus } from 'react-icons/fa';
+// import components
 import { DetailTitle, wrapperVariants } from './DetailOverView';
 
 const DetailPriceWrapper = styled(motion.div)`
@@ -12,36 +13,39 @@ const DetailPriceWrapper = styled(motion.div)`
     }
 `;
 
-const PriceContents = styled.div`
+const PriceInner = styled.div`
     display: grid;
-    grid-template-columns: 2fr 3fr;
+    grid-template-columns: 1fr 3fr;
     align-items: center;
 `;
 
 const CurrentPrice = styled.div`
-    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    text-align: center;
     color: ${(props) => props.theme.accent_dark};
-    font-size: var(--font-size-medium-large);
-    margin-right: var(--margin-medium-large);
+    font-size: 1.15rem;
+    span {
+        color: ${(props) => props.theme.accent};
+        margin-top: 1rem;
+    }
 `;
 
-const OtherPrices = styled.div``;
+const OtherPriceItemWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+`;
 
 const OtherPriceItems = styled.div`
-    display: grid;
-    grid-template-columns: 2fr 2fr 1fr;
-    font-size: var(--font-size-small);
-    margin-bottom: var(--margin-medium-large);
-    padding: var(--padding-double-medium);
-    box-shadow: ${(props) => props.theme.bg_dark} 0px 8px 8px -8px,
-        ${(props) => props.theme.bg_dark} 0px 30px 60px -30px,
-        ${(props) => props.theme.bg_dark} 0px 30px 60px -30px inset;
-    border-radius: 4px;
+    width: 75%;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0.5rem 0;
+    padding: 0.25rem 0;
+    border-bottom: 2px solid ${(props) => props.theme.accent};
 `;
 
 const PriceName = styled.span``;
@@ -79,12 +83,12 @@ export default function DetailPrice({ tickersData }) {
             animate="animate"
         >
             <DetailTitle>Price(USD)</DetailTitle>
-            <PriceContents>
+            <PriceInner>
                 <CurrentPrice>
-                    <PriceName>Current Price</PriceName>
-                    <PriceValue>{currentPrice}</PriceValue>
+                    <p>Current Price</p>
+                    <span>{currentPrice} USD</span>
                 </CurrentPrice>
-                <OtherPrices>
+                <OtherPriceItemWrapper>
                     {timeData.map((time) => (
                         <OtherPriceItems key={time.label}>
                             <PriceName>{time.label}</PriceName>
@@ -108,8 +112,8 @@ export default function DetailPrice({ tickersData }) {
                             </PriceChange>
                         </OtherPriceItems>
                     ))}
-                </OtherPrices>
-            </PriceContents>
+                </OtherPriceItemWrapper>
+            </PriceInner>
         </DetailPriceWrapper>
     );
 }
