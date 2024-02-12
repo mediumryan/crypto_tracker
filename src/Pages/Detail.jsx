@@ -14,6 +14,11 @@ const DetailGrid = styled.div`
     display: flex;
     flex-direction: column;
     color: ${(props) => props.theme.text_dark};
+    @media only screen and (min-width: 768px) and (max-width: 1024px) {
+        align-items: center;
+    }
+    @media only screen and (min-width: 320px) and (max-width: 768px) {
+    }
 `;
 
 export default function Detail({ currentTheme }) {

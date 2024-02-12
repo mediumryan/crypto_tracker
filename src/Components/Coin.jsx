@@ -10,8 +10,7 @@ const CoinWrapper = styled.li`
     justify-content: space-between;
     padding: 0.5rem 1rem;
     margin-bottom: 1rem;
-    border-bottom: 3px solid ${(props) => props.theme.bg_dark};
-    border-radius: 4px;
+    border-bottom: 0.5px solid ${(props) => props.theme.text_dark};
     font-size: 0.85rem;
 `;
 

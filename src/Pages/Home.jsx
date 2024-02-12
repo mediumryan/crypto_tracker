@@ -14,8 +14,6 @@ export const PageWrapper = styled.div`
     align-items: center;
     justify-content: center;
     margin-top: 2rem;
-    background-color: ${(props) => props.theme.bg_light};
-    border-radius: 4px;
     @media only screen and (min-width: 768px) and (max-width: 1024px) {
     }
     @media only screen and (min-width: 320px) and (max-width: 768px) {

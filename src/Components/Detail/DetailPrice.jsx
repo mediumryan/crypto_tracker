@@ -7,9 +7,20 @@ import { DetailTitle, wrapperVariants } from './DetailOverView';
 
 const DetailPriceWrapper = styled(motion.div)`
     flex-basis: 30%;
+    border: 0.5px solid ${(props) => props.theme.text_dark};
+    margin: 1.5rem 3rem;
+    padding: 1.5rem 3rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+        rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+        rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    border-radius: 20px;
     @media only screen and (min-width: 768px) and (max-width: 1024px) {
+        margin: 1rem 0;
+        width: 90%;
     }
     @media only screen and (min-width: 320px) and (max-width: 768px) {
+        margin: 1rem 0;
+        padding: 2rem;
     }
 `;
 
@@ -17,6 +28,10 @@ const PriceInner = styled.div`
     display: grid;
     grid-template-columns: 1fr 3fr;
     align-items: center;
+    @media only screen and (min-width: 320px) and (max-width: 768px) {
+        display: flex;
+        flex-direction: column;
+    }
 `;
 
 const CurrentPrice = styled.div`
@@ -29,6 +44,9 @@ const CurrentPrice = styled.div`
     span {
         color: ${(props) => props.theme.accent};
         margin-top: 1rem;
+    }
+    @media only screen and (min-width: 320px) and (max-width: 768px) {
+        margin: 1rem 0;
     }
 `;
 
@@ -46,9 +64,12 @@ const OtherPriceItems = styled.div`
     font-size: 0.9rem;
     margin: 0.5rem 0;
     padding: 1rem;
-    border-bottom: 2px solid ${(props) => props.theme.accent};
+    border-bottom: 0.5px solid ${(props) => props.theme.text_dark};
     & > div:nth-child(2) {
         text-align: center;
+    }
+    @media only screen and (min-width: 320px) and (max-width: 768px) {
+        width: 100%;
     }
 `;
 
@@ -75,7 +96,6 @@ export default function DetailPrice({ tickersData }) {
     ];
     return (
         <DetailPriceWrapper
-            className="detail_item"
             variants={wrapperVariants}
             initial="initial"
             animate="animate"
