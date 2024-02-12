@@ -40,27 +40,25 @@ const OtherPriceItemWrapper = styled.div`
 `;
 
 const OtherPriceItems = styled.div`
-    width: 75%;
-    display: flex;
-    justify-content: space-evenly;
+    width: 60%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    font-size: 0.9rem;
     margin: 0.5rem 0;
-    padding: 0.25rem 0;
+    padding: 1rem;
     border-bottom: 2px solid ${(props) => props.theme.accent};
+    & > div:nth-child(2) {
+        text-align: center;
+    }
 `;
 
-const PriceName = styled.span``;
-
-const PriceValue = styled.span``;
-
-const PriceChange = styled.span`
+const PriceChange = styled.div`
+    justify-self: end;
     display: flex;
     align-items: center;
-    color: ${(props) =>
-        props.priceColor > 0
-            ? '#8CC63F'
-            : props.priceColor === 0
-            ? props.theme.text_dark
-            : '#FF5733'};
+    & > p {
+        margin-right: 0.5rem;
+    }
 `;
 
 export default function DetailPrice({ tickersData }) {
@@ -91,17 +89,34 @@ export default function DetailPrice({ tickersData }) {
                 <OtherPriceItemWrapper>
                     {timeData.map((time) => (
                         <OtherPriceItems key={time.label}>
-                            <PriceName>{time.label}</PriceName>
-                            <PriceValue>
+                            <div>{time.label}</div>
+                            <div>
                                 {(
                                     currentPrice *
                                     (100 - tickersData.quotes.USD[time.prop])
                                 ).toFixed(2)}
-                            </PriceValue>
+                                USD
+                            </div>
                             <PriceChange
-                                priceColor={tickersData.quotes.USD[time.prop]}
+                                style={{
+                                    color:
+                                        tickersData.quotes.USD[time.prop] > 0
+                                            ? '#8CC63F'
+                                            : tickersData.quotes.USD[
+                                                  time.prop
+                                              ] === 0
+                                            ? tickersData.quotes.USD[
+                                                  time.prop
+                                              ] > 0
+                                            : '#FF5733',
+                                }}
                             >
-                                {tickersData.quotes.USD[time.prop].toFixed(2)}%
+                                <p>
+                                    {tickersData.quotes.USD[time.prop].toFixed(
+                                        2
+                                    )}
+                                    %
+                                </p>
                                 {tickersData.quotes.USD[time.prop] > 0 ? (
                                     <FaArrowUp />
                                 ) : tickersData.quotes.USD[time.prop] === 0 ? (

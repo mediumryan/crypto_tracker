@@ -18,6 +18,7 @@ const CoinWrapper = styled.li`
 const NameLogo = styled.div`
     display: flex;
     align-items: center;
+    cursor: pointer;
     span {
         color: ${(props) => props.theme.text_dark};
     }
